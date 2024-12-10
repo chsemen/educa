@@ -24,7 +24,7 @@ class Course(models.Model):
     )
     subject = models.ForeignKey(
         Subject,
-        related_name='subject',
+        related_name='courses',
         on_delete=models.CASCADE
     )
     title = models.CharField(max_length=200)
@@ -69,7 +69,7 @@ class Content(models.Model):
     )    
     object_id = models.PositiveIntegerField()
     item = GenericForeignKey('content_type', 'object_id')
-    order = OrderField(blank=True, for_fields=['course'])
+    order = OrderField(blank=True, for_fields=['module'])
     
     class Meta:
         ordering = ['order']
@@ -81,7 +81,7 @@ class ItemBase(models.Model):
         related_name='%(class)s_related',
         on_delete=models.CASCADE
     )    
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=250)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
