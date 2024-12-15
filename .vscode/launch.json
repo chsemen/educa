@@ -13,6 +13,14 @@
             "django": true,
             "justMyCode": false,
             "console": "integratedTerminal"
+        },
+        {
+            "name": "Python: File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "justMyCode": false
         }
+
     ]
 }
