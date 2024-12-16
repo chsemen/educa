@@ -4,6 +4,16 @@
 
 {% block content %}
     <div id="chat">
+        {% for message in latest_messages %}
+            <div class="message {% if message.user == request.user %}me{% else %}other{% endif %}">
+                <strong>{{ message.user.username }}</strong>
+                <span class="date">
+                    {{ message.sent_on|date:"d.m.Y H:i A"}}
+                </span>
+                <br>
+                {{ message.content }}
+            </div>
+        {% endfor %}
     </div>
     <div id="chat-input">
         <input id="chat-message-input" type="text">
@@ -13,6 +23,7 @@
 
 {% block include_js %}
     {{ course.id|json_script:"course-id" }}
+    {{ request.user.username|json_script:"request-user" }}
 {% endblock %}
 
 {% block domready %}
@@ -20,6 +31,9 @@
     const courseId = JSON.parse(
         document.getElementById('course-id').textContent
     );
+    const requestUser = JSON.parse(
+        document.getElementById('request-user').textContent
+    )
     const url = 'ws://' + window.location.host +
         '/ws/chat/room/' + courseId + '/';
     const chatSocket = new WebSocket(url);
@@ -27,11 +41,16 @@
     chatSocket.onmessage=function(event) {
         const data = JSON.parse(event.data);
         const chat = document.getElementById('chat');
-        if (chat === null) {
-            console.error('chat === null')    
-        }
 
-        chat.innerHTML += '<div class="message">' +
+        const dateOptions = {hour: 'numeric', minute: 'numeric', hour12: true}
+        const datetime = new Date(data.datetime).toLocaleString('ru', dateOptions)
+        const isMe = data.user === requestUser;
+        const source = isMe ? 'me' : 'other';
+        const name = isMe ? 'Me' : data.user;
+
+        chat.innerHTML += '<div class="message ' + source +'">' +
+            '<strong>' + name + '</strong> '+
+            '<span class="date">' + datetime + '</span><br>' +
             data.message + '</div>';
         chat.scrollTop = chat.scrollHeight;    
     };

@@ -41,8 +41,8 @@ class Course(models.Model):
     class Meta:
         ordering = ['-created']
 
-        def __str__(self):
-            return self.title
+    def __str__(self):
+        return self.title
  
 class Module(models.Model):   
     course = models.ForeignKey(
