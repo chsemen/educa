@@ -1,5 +1,7 @@
 cert.key
 media/
+uwsgi_app.sock
+uwsgi_app.socket
 
 .DS_Store
 data/
