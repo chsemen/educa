@@ -1,6 +1,7 @@
 cert.key
 media/
 uwsgi_app.sock
+educa.key
 
 .DS_Store
 data/

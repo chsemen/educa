@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python Debugger: Django",
+            "name": "Django educa.settings.local",
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}\\educa\\manage.py",
@@ -14,6 +14,16 @@
             "justMyCode": false,
             "console": "integratedTerminal"
         },
+        {
+            "name": "Django",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}\\educa\\manage.py",
+            "args": ["runserver", "--settings=educa.settings"],
+            "django": true,
+            "justMyCode": false,
+            "console": "integratedTerminal"
+        },        
         {
             "name": "Python: File",
             "type": "debugpy",
