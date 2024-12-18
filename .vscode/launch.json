@@ -8,8 +8,8 @@
             "name": "Python Debugger: Django",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}\\manage.py",
-            "args": ["runserver"],
+            "program": "${workspaceFolder}\\educa\\manage.py",
+            "args": ["runserver", "--settings=educa.settings.local"],
             "django": true,
             "justMyCode": false,
             "console": "integratedTerminal"

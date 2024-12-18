@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-#8wimlxeqxzw32vd9&#k5y=nb6n*k5rsy*!ebsg@g(lt!%9vhp'
+SECRET_KEY = '#8wimlxeqxzw32vd9&#k5y=nb6n*k5rsy*!ebsg@g(lt!%9vhp_jkdjhuwyhebxcnfjsadhfjhasjdkhfasdnfjahsuehyrusehjhfdnfmd'
 
 
 ALLOWED_HOSTS = []
@@ -38,12 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'students.apps.StudentsConfig',
-    'chat.apps.ChatConfig',
     'embed_video',
     'debug_toolbar',
     'redisboard',
     'rest_framework',
+    'students.apps.StudentsConfig',
+    'chat.apps.ChatConfig',
 ]
 
 MIDDLEWARE = [
