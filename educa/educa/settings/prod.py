@@ -7,7 +7,7 @@ ADMINS = [
     ('Semen Chefranov', 'ch-semen@rambler.ru'),
 ]
 
-ALLOWED_HOSTS = ['educaproject.com', 'www.educaproject.com', 
+ALLOWED_HOSTS = ['.educaproject.com', 
                  '127.0.0.1', '172.27.22.112']
 
 DATABASES = {

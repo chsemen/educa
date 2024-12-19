@@ -3,6 +3,7 @@
 # docker compose exec web python /code/educa/manage.py createsuperuser
 # docker compose exec web python /code/educa/manage.py collectstatic
 # docker compose exec nginx nginx -s reload
+# docker compose exec web python /code/educa/manage.py enroll_reminder --days=20 --settings=educa.settings.prod
 
 services:
   db:
